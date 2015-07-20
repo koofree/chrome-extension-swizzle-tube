@@ -1,0 +1,15 @@
+{
+  "name": "Add new video to my swizzle album",
+  "version": "0.1",
+  "description": "Add a video you are watching now on browser to my swizzle album.",
+  "permissions": [
+    "bookmarks", "browsingData", "tabs"
+  ],
+  "browser_action": {
+    "default_title": "Add this video",
+    "default_icon": "icon.png",
+    "default_popup": "popup.html"
+  },
+  "manifest_version": 2,
+  "content_security_policy": "script-src 'self' https://ajax.googleapis.com; object-src 'self'"
+}
