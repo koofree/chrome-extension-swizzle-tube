@@ -29,7 +29,20 @@ function dumpAlbums(youtubeApiKey) {
                             html += '<span>' + title + '</span>';
                             html += '</td></tr>';
                             html += '</div>';
-                            $('#myvideos').append(html);
+                            $(html).find('button').click(function () {
+                                var pid = 'Z1S_glHFMe';
+                                $('#status').text('success add a video');
+
+                                //$.ajax({
+                                //    url: 'http://swizzle.fm/repost/to/' + pid,
+                                //    data: {pid : pid, sid : },
+                                //    type: 'post',
+                                //    success: function () {
+                                //        alert('success!');
+                                //    }
+                                //});
+
+                            }).end().appendTo('#myvideos');
                         }
                     }
                 });
@@ -42,22 +55,39 @@ function dumpAlbums(youtubeApiKey) {
 }
 
 function readTextFile(file, callback) {
-    var rawFile = new XMLHttpRequest();
-    rawFile.open("GET", file, false);
-    rawFile.onreadystatechange = function () {
-        if (rawFile.readyState === 4) {
-            if (rawFile.status === 200 || rawFile.status == 0) {
-                var allText = rawFile.responseText;
-                callback(allText);
-            }
+    $.ajax({
+        url: file,
+        dataType: 'text',
+        success: function (data) {
+            callback(data);
         }
-    }
-    rawFile.send(null);
+    });
 }
 
 
 document.addEventListener('DOMContentLoaded', function () {
-    var youtubeApiKey = readTextFile(youtube_apikey_filename, function (youtubeApiKey) {
+    readTextFile(youtube_apikey_filename, function (youtubeApiKey) {
         dumpAlbums(youtubeApiKey);
     });
+    $.ajax({
+        url: 'http://swizzle.fm/discovers/popular',
+        dataType: 'html',
+        success: function (html) {
+            var hrefUrl = $(html).find('.my-navi > a').attr('href');
+            if (hrefUrl) {
+                var userId = hrefUrl.substring(hrefUrl.lastIndexOf('/') + 1);
+                $.ajax({
+                    url: 'http://swizzle.fm/pages/userpage/' + userId,
+                    crossDomain: true,
+                    dataType: 'html',
+                    success: function (html) {
+                        $('#albums').html(html).find('.userpage img').imgs2CacheFF();
+                    }
+                });
+            } else {
+                $('#status').append('Need to login');
+            }
+        }
+    });
 });
+

@@ -3,7 +3,11 @@
   "version": "0.1",
   "description": "Add a video you are watching now on browser to my swizzle album.",
   "permissions": [
-    "bookmarks", "browsingData", "tabs"
+    "bookmarks",
+    "browsingData",
+    "tabs",
+    "http://swizzle.fm/",
+    "https://facebook.com/"
   ],
   "browser_action": {
     "default_title": "Add this video",
