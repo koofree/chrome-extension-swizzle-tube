@@ -2543,3 +2543,12 @@ New style text for chrome extension
 #albums {
     padding-bottom: 100%;
 }
+
+#status {
+    position: fixed;
+    background-color: #fff;
+    z-index: 99999;
+    border-bottom: 1px solid #000;
+    display: none;
+    width: 100%;
+}
