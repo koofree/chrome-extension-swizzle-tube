@@ -128,13 +128,13 @@ var loadMyAlbums = function (userId) {
                                 },
                                 type: 'post',
                                 success: function () {
-                                    $('#status').text('success add a video [' + youtubeTitle + '] to album [' + caption + ']')
+                                    $('#status').append('<div class="popover-content">success add a video [' + youtubeTitle + '] to album [' + caption + ']</div>')
                                         .fadeIn().delay(3000).fadeOut();
 
                                     loadMyAlbums(userId);
                                 },
                                 error: function () {
-                                    $('#status').text('Network error!')
+                                    $('#status').append('<div class="popover-content">Network error!</div>')
                                         .fadeIn().delay(3000).fadeOut();
                                 }
                             });

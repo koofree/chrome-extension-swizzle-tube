@@ -22,6 +22,8 @@ body {
     padding: 0;
     font: 14px "Open Sans", sans-serif;
     height: 100%;
+    width: 400px;
+    min-height: 400px;
 }
 
 button:focus {
@@ -2542,13 +2544,4 @@ New style text for chrome extension
 
 #albums {
     padding-bottom: 100%;
-}
-
-#status {
-    position: fixed;
-    background-color: #fff;
-    z-index: 99999;
-    border-bottom: 1px solid #000;
-    display: none;
-    width: 100%;
 }
