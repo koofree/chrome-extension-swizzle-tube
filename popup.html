@@ -11,17 +11,38 @@
 </head>
 <body>
 <div id="alert-container">
-    <div id="status" class="alert popover notifier">
+    <div class="alert popover notifier" style="width:500px;">
     </div>
 </div>
 <div id="myvideos">
-    <li>You can add a recent video to your swizzle albums.</li>
-    <li>Drag a video to your album that you want to add it.</li>
-    <div class="items container-fluid">
+    <div class="items container-fluid" style="margin-top:10px;">
         <div class="row"></div>
     </div>
+    <ol style="border: 1px solid #333; margin: 10px 10px 0;">
+        <span>Add a video you are watching to your Swizzle album!</span>
+        <li class="text-info">Find a video you want to add on <a href="https://youtube.com">youtube.com</a></li>
+        <li class="text-info">Click the Swizzle logo in your Chrome toolbar</li>
+        <li class="text-info">Drag and drop the video below to add</li>
+    </ol>
 </div>
 <div id="albums"></div>
+<div id="dialog-form" title="Create new album">
+    <p class="validateTips">All form fields are required.</p>
+
+    <form>
+        <fieldset>
+            <label for="name">Name</label>
+            <input type="text" name="name" id="name" value="Jane Smith" class="text ui-widget-content ui-corner-all">
+            <label for="email">Email</label>
+            <input type="text" name="email" id="email" value="jane@smith.com" class="text ui-widget-content ui-corner-all">
+            <label for="password">Password</label>
+            <input type="password" name="password" id="password" value="xxxxxxx" class="text ui-widget-content ui-corner-all">
+
+            <!-- Allow form submission with keyboard without duplicating the dialog button -->
+            <input type="submit" tabindex="-1" style="position:absolute; top:-1000px">
+        </fieldset>
+    </form>
+</div>
 <script type="text/javascript"
         src="bootstrap.min.js"></script>
 </body>

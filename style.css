@@ -2504,16 +2504,15 @@ div.search-result-title > a {
 
 #alert-container {
     position: fixed;
-    bottom: 15px;
-    left: 35px;
+    top: 15px;
+    left: 20px;
     z-index: 99999;
 }
 
 .notifier {
     position: relative;
     box-shadow: 3px 3px 13px;
-    max-width: 280px;
-    min-width: none;
+    min-width: 360px;
     font-size: smaller;
 }
 
